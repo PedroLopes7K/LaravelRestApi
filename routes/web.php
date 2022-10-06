@@ -20,16 +20,16 @@ Route::get('/', function () {
 });
 
 Route::prefix('/v1')->group(function () {
-    Route::post('activities', [ActivitiesController::class, 'store']);
-    Route::post('activities/{activity_id}/items', 'ActivitiesController@storeLists');
+    Route::post('activities-post', [ActivitiesController::class, 'store']);
+    Route::post('activities/{activity_id}/items', [ActivitiesController::class, 'storeLists']);
 
     Route::get('activities', [ActivitiesController::class, 'show']);
-    Route::get('activities/{activity_id}', 'ActivitiesController@getActivityById');
+    Route::get('activities/{activity_id}',  [ActivitiesController::class, 'getActivityById']);
 
-    Route::patch('activities/{activity_id}', 'ActivitiesController@activityUpdate');
-    Route::patch('activities/{activity_id}/items/{item_id}', 'ActivitiesController@itemUpdate');
+    Route::patch('activities/{activity_id}',  [ActivitiesController::class, 'activityUpdate']);
+    Route::patch('activities/{activity_id}/items/{item_id}', [ActivitiesController::class, 'itemUpdate']);
 
 
-    Route::delete('activities/{activity_id}', 'ActivitiesController@activityDelete');
-    Route::delete('activities/{activity_id}/items/{item_id}', 'ActivitiesController@itemDelete');
+    Route::delete('activities/{activity_id}',  [ActivitiesController::class, 'activityDelete']);
+    Route::delete('activities/{activity_id}/items/{item_id}', [ActivitiesController::class, 'itemDelete']);
 });

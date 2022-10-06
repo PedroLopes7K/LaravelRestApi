@@ -10,9 +10,9 @@ class ActivitiesController extends Controller
 {
     public function store(Request $request)
     {
-        $activity_name = $request->input('activity_name');
+        // $activity_name = $request->input('activity_name');
         $data = array(
-            'activity_name' => $activity_name
+            'activity_name' => 'Testando Api'
         );
         $activity = Activity::create($data);
         if ($activity) {
