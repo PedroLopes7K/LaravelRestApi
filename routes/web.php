@@ -18,18 +18,3 @@ use App\Http\Controllers\ActivitiesController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::prefix('/v1')->group(function () {
-    Route::post('activities-post', [ActivitiesController::class, 'store']);
-    Route::post('activities/{activity_id}/items', [ActivitiesController::class, 'storeLists']);
-
-    Route::get('activities', [ActivitiesController::class, 'show']);
-    Route::get('activities/{activity_id}',  [ActivitiesController::class, 'getActivityById']);
-
-    Route::patch('activities/{activity_id}',  [ActivitiesController::class, 'activityUpdate']);
-    Route::patch('activities/{activity_id}/items/{item_id}', [ActivitiesController::class, 'itemUpdate']);
-
-
-    Route::delete('activities/{activity_id}',  [ActivitiesController::class, 'activityDelete']);
-    Route::delete('activities/{activity_id}/items/{item_id}', [ActivitiesController::class, 'itemDelete']);
-});
