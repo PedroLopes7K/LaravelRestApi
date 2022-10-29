@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Activity;
 use App\Models\Item;
+use Illuminate\Support\Facades\Log;
 
 class ActivitiesController extends Controller
 {
@@ -57,6 +58,7 @@ class ActivitiesController extends Controller
     }
     public function show()
     {
+        Log::info('cai aqui');
         $activities = Activity::with('items')->get();
         return response()->json([
             'data' => $activities

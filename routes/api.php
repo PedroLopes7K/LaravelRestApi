@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('/v1')->group(function () {
-    Route::post('activities-post', [ActivitiesController::class, 'store']);
+    Route::post('activities', [ActivitiesController::class, 'store']);
     Route::post('activities/{activity_id}/items', [ActivitiesController::class, 'storeLists']);
 
     Route::get('activities', [ActivitiesController::class, 'show']);
